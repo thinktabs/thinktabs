@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Thinktabs GitHub assets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* Brand tokens from Web/brand/palette.json. Rust is the one extra: burns and defaults only. */
+  :root {
+    --plum: #754186; --cream: #F9F1E5; --night: #2A1840; --lilac: #C9BDFF; --ink: #14111A;
+    --muted: #6B6272; --rule: #D9CDBF; --rust: #B4482F; --paper-2: #F1E6D6;
+    --display: "Fraunces", Georgia, serif; --sans: "Instrument Sans", system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--plum); font-family: var(--sans); color: var(--ink); padding: 40px; }
+  .frame { position: relative; overflow: hidden; background: var(--plum); margin-bottom: 40px;
+    background-image: radial-gradient(rgba(249,241,229,.07) 1.2px, transparent 1.4px); background-size: 22px 22px; }
+  .paper { background: var(--cream); position: relative;
+    -webkit-mask: radial-gradient(circle at 9px 0, #0000 6px, #000 6.5px) top / 18px 51% repeat-x,
+                  radial-gradient(circle at 9px 100%, #0000 6px, #000 6.5px) bottom / 18px 51% repeat-x;
+            mask: radial-gradient(circle at 9px 0, #0000 6px, #000 6.5px) top / 18px 51% repeat-x,
+                  radial-gradient(circle at 9px 100%, #0000 6px, #000 6.5px) bottom / 18px 51% repeat-x; }
+  .mono { font-family: var(--mono); }
+  .eyebrow { font-family: var(--mono); font-size: 15px; letter-spacing: .18em; text-transform: uppercase; color: var(--lilac); }
+  .h { font-family: var(--display); font-style: italic; font-weight: 400; color: var(--cream); letter-spacing: -.01em; }
+  .dash { border-top: 2px dashed var(--rule); }
+  .row { display: flex; justify-content: space-between; align-items: baseline; }
+  .stamp { display: inline-block; font-family: var(--mono); font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    border: 3px solid currentColor; border-radius: 6px; padding: 6px 14px; transform: rotate(-4deg); }
+
+  /* ── banner 1280×640 ─────────────────────────────── */
+  #banner { width: 1280px; height: 640px; padding: 72px 80px; display: flex; gap: 56px; align-items: center; }
+  #banner .left { flex: 1; }
+  #banner .brand { display: flex; align-items: center; gap: 22px; margin-bottom: 44px; }
+  #banner .brand svg { width: 76px; height: 76px; }
+  #banner .brand span { font-family: var(--display); font-weight: 600; font-size: 52px; color: var(--cream); letter-spacing: -.02em; }
+  #banner h1 { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 70px; line-height: 1.02; color: var(--cream); letter-spacing: -.02em; }
+  #banner p { margin-top: 26px; font-size: 23px; line-height: 1.45; color: rgba(249,241,229,.82); max-width: 560px; }
+  #banner .chips { display: flex; gap: 10px; margin-top: 36px; }
+  #banner .chip { font-family: var(--mono); font-size: 15px; color: var(--cream); border: 1.5px solid rgba(249,241,229,.4); border-radius: 999px; padding: 7px 14px; }
+  #banner .chip.on { background: var(--cream); color: var(--plum); border-color: var(--cream); font-weight: 700; }
+  #banner .slip { width: 400px; padding: 40px 34px 44px; transform: rotate(2.5deg); box-shadow: 0 30px 60px rgba(20,17,26,.35); font-family: var(--mono); font-size: 16px; }
+  .slip .title { font-family: var(--display); font-style: italic; font-size: 30px; text-align: center; color: var(--plum); }
+  .slip .sub { text-align: center; font-size: 13px; letter-spacing: .14em; color: var(--muted); margin: 6px 0 20px; }
+  .slip .row { padding: 6px 0; }
+  .slip .k { color: var(--muted); }
+  .slip .big { font-size: 22px; font-weight: 700; }
+
+  /* ── diagram frames 1600 wide ────────────────────── */
+  .diagram { width: 1600px; padding: 64px 72px 72px; }
+  .diagram .head { margin-bottom: 40px; }
+  .diagram .head .h { font-size: 52px; margin-top: 10px; }
+  .diagram .head p { color: rgba(249,241,229,.8); font-size: 21px; margin-top: 10px; max-width: 1100px; line-height: 1.45; }
+
+  /* how it works */
+  #how .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
+  .card { padding: 30px 30px 34px; }
+  .card .n { font-family: var(--mono); font-size: 14px; letter-spacing: .14em; color: var(--plum); font-weight: 700; }
+  .card h3 { font-family: var(--display); font-weight: 600; font-size: 30px; margin: 8px 0 8px; letter-spacing: -.01em; }
+  .card p { font-size: 18px; line-height: 1.45; color: #3b3542; }
+  .card .tag { display: inline-block; margin-top: 14px; font-family: var(--mono); font-size: 15px; background: var(--paper-2); padding: 5px 10px; border-radius: 4px; }
+  .arrow-row { display: flex; justify-content: center; padding: 14px 0; }
+  .arrow-row svg { width: 40px; height: 40px; }
+  .wide { padding: 30px 36px 34px; display: flex; align-items: center; gap: 30px; }
+  .wide .n { min-width: 70px; }
+  .wide h3 { margin: 0; flex: 0 0 400px; }
+  .wide p { flex: 1; }
+
+  /* earned vs covered */
+  #rebate .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+  #rebate .slip { padding: 44px 44px 50px; font-family: var(--mono); font-size: 19px; }
+  #rebate .slip .title { font-size: 38px; }
+  #rebate .slip .row { padding: 9px 0; }
+  #rebate .total { font-size: 30px; font-weight: 700; padding-top: 16px; }
+  #rebate .note { font-family: var(--sans); font-size: 18px; line-height: 1.45; color: #3b3542; margin-top: 18px; }
+  #rebate .stampwrap { position: absolute; right: 36px; top: 40px; }
+  #rebate .foot { color: rgba(249,241,229,.75); font-family: var(--mono); font-size: 16px; margin-top: 28px; }
+
+  /* default path */
+  #default .line { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: stretch; }
+  #default .step { padding: 28px 28px 32px; }
+  #default .step .t { font-family: var(--mono); font-size: 15px; color: var(--muted); letter-spacing: .08em; }
+  #default .step h3 { font-family: var(--display); font-weight: 600; font-size: 28px; margin: 6px 0 8px; }
+  #default .step p { font-size: 17px; line-height: 1.45; color: #3b3542; }
+  #default .outcomes { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 22px; }
+  #default .o { border: 1.5px solid rgba(249,241,229,.35); border-radius: 10px; padding: 18px 18px 20px; color: var(--cream); }
+  #default .o b { display: block; font-family: var(--mono); font-size: 26px; margin-bottom: 6px; }
+  #default .o span { font-size: 16px; line-height: 1.4; color: rgba(249,241,229,.82); }
+  #default .o.burn b { color: #FFB9A6; }
+
+  /* reserve split */
+  #reserve .bar { display: flex; height: 150px; border-radius: 12px; overflow: hidden; }
+  #reserve .seg { display: flex; flex-direction: column; justify-content: center; padding: 0 26px; }
+  #reserve .seg b { font-family: var(--mono); font-size: 46px; font-weight: 700; }
+  #reserve .seg span { font-size: 18px; margin-top: 2px; }
+  #reserve .legend { display: grid; grid-template-columns: 4fr 3fr 2fr 1fr; gap: 0; margin-top: 18px; color: rgba(249,241,229,.85); font-size: 17px; line-height: 1.45; }
+  #reserve .legend div { padding-right: 22px; }
+  #reserve .facts { display: flex; gap: 14px; margin-top: 34px; }
+  #reserve .fact { flex: 1; border: 1.5px solid rgba(249,241,229,.35); border-radius: 10px; padding: 16px 20px; color: var(--cream); font-size: 18px; }
+  #reserve .fact .mono { color: var(--lilac); font-size: 15px; display: block; margin-bottom: 4px; letter-spacing: .1em; }
+
+  /* tiers */
+  #tiers .ladder { display: flex; align-items: flex-end; gap: 18px; height: 500px; }
+  #tiers .t { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; }
+  #tiers .col { padding: 22px 20px 26px; }
+  #tiers .col .tn { font-family: var(--mono); font-weight: 700; color: var(--plum); font-size: 18px; }
+  #tiers .col .amt { font-family: var(--display); font-weight: 600; font-size: 40px; margin: 2px 0 8px; }
+  #tiers .col p { font-size: 15px; line-height: 1.4; color: #3b3542; }
+  #tiers .v2 .col { background: var(--paper-2); opacity: .82; }
+  #tiers .rules { display: flex; gap: 14px; margin-top: 24px; }
+  #tiers .rules div { flex: 1; color: var(--cream); font-size: 18px; border-left: 3px solid var(--lilac); padding: 4px 0 4px 16px; }
+
+  /* score */
+  #score .bar { display: flex; height: 120px; gap: 4px; }
+  #score .seg { background: var(--cream); border-radius: 8px; padding: 16px 16px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+  #score .seg b { font-family: var(--mono); font-size: 30px; color: var(--plum); }
+  #score .seg span { font-size: 15px; line-height: 1.25; color: #3b3542; }
+  #score .seg.alt { background: var(--paper-2); }
+  #score .minus { display: flex; gap: 14px; margin-top: 24px; }
+  #score .minus div { flex: 1; color: var(--cream); font-size: 18px; border: 1.5px dashed rgba(249,241,229,.45); border-radius: 10px; padding: 16px 20px; }
+  #score .minus b { font-family: var(--mono); color: #FFB9A6; font-size: 22px; margin-right: 10px; }
+</style>
+</head>
+<body>
+
+<!-- The official mark, path copied from Web/brand/thinktabs-mark.svg. Never redrawn. -->
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="mark" viewBox="-9 -4 449 449">
+    <path d="M127.5 107.5 H61.5 A46.5 46.5 0 0 1 61.5 14.5 H368.5 A46.5 46.5 0 0 1 368.5 107.5 H247.5 A80 80 0 0 0 167.5 187.5 V377 A48 48 0 0 0 263.5 377 V327.5" fill="none" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/>
+    <path d="M263.5 257 L304.5 329.5 L222.5 329.5 Z" fill="currentColor"/>
+  </symbol>
+  <symbol id="down" viewBox="0 0 40 40"><path d="M20 6 V32 M10 23 L20 33 L30 23" fill="none" stroke="#F9F1E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<!-- 1. banner -->
+<section class="frame" id="banner">
+  <div class="left">
+    <div class="brand"><svg style="color:var(--cream)"><use href="#mark"/></svg><span>Thinktabs</span></div>
+    <h1>Your agent thinks now.<br>Pays later.</h1>
+    <p>A tab of inference for AI agents. It can only be spent on models and tools, and it is paid back in USDG from what the agent earns.</p>
+    <div class="chips"><span class="chip on">$THINK</span><span class="chip">Robinhood Chain</span><span class="chip">USDG</span><span class="chip">ERC-8004</span></div>
+  </div>
+  <div class="paper slip">
+    <div class="title">Tab #318</div>
+    <div class="sub">SCOUT-7 · TIER T2</div>
+    <div class="dash"></div>
+    <div class="row" style="margin-top:10px"><span class="k">credit</span><span>100.00</span></div>
+    <div class="row"><span class="k">term</span><span>14 days</span></div>
+    <div class="row"><span class="k">pool spent</span><span>55.26</span></div>
+    <div class="row"><span class="k">fee</span><span>1.00</span></div>
+    <div class="dash" style="margin:10px 0"></div>
+    <div class="row"><span class="k">owe, earned</span><span class="big" style="color:var(--plum)">56.26</span></div>
+    <div class="row"><span class="k">owe, covered</span><span class="big">101.00</span></div>
+    <div style="text-align:center;margin-top:18px;color:var(--muted);font-size:12px;letter-spacing:.12em">SAMPLE TAB · BOOK 24 NOV 2026</div>
+  </div>
+</section>
+
+<!-- 2. how a tab works -->
+<section class="frame diagram" id="how">
+  <div class="head">
+    <div class="eyebrow">How a tab works</div>
+    <div class="h">Three parties put up the tab. The agent only ever sees inference.</div>
+  </div>
+  <div class="grid">
+    <div class="paper card"><div class="n">01 · LENDER</div><h3>Deposits USDG</h3><p>Into the Tab Pool, for pool shares. Withdrawals never wait for a tab.</p><span class="tag">50% of every fee</span></div>
+    <div class="paper card"><div class="n">02 · BACKER</div><h3>Covers the agent</h3><p>USDG locked 1:1 against the tab. It is what pays a default.</p><span class="tag">25% of every fee</span></div>
+    <div class="paper card"><div class="n">03 · OWNER</div><h3>Bonds $THINK</h3><p>Worth at least 1.5x the tab, and signs consent once.</p><span class="tag">75% burns on default</span></div>
+  </div>
+  <div class="arrow-row"><svg><use href="#down"/></svg></div>
+  <div class="paper card wide"><div class="n">04</div><h3>Tab Desk opens it</h3><p>Checks tab size against cover, bond against 1.5x, and the agent's tier. Term 7, 14 or 30 days, with a maximum price per CREDIT.</p></div>
+  <div class="arrow-row"><svg><use href="#down"/></svg></div>
+  <div class="paper card wide"><div class="n">05</div><h3>Credit Router activates it</h3><p>Buys CREDIT on the book with pool USDG and activates it straight into the agent's inference balance, in one transaction. No token reaches the agent.</p></div>
+  <div class="arrow-row"><svg><use href="#down"/></svg></div>
+  <div class="paper card wide"><div class="n">06</div><h3>Agent works, then repays</h3><p>Every model call draws from the balance. Before the due date the agent repays USDG plus the fee, and the record shows earned or covered.</p></div>
+</section>
+
+<!-- 3. earned vs covered -->
+<section class="frame diagram" id="rebate">
+  <div class="head">
+    <div class="eyebrow">The Earned Rebate</div>
+    <div class="h">Same $100 tab. Two ways to pay it back.</div>
+    <p>The pool buys CREDIT at market, often below $1. An agent that repays on time from its own income keeps that discount. Anyone else pays face value.</p>
+  </div>
+  <div class="pair">
+    <div class="paper slip">
+      <div class="stampwrap"><span class="stamp" style="color:var(--plum)">Earned</span></div>
+      <div class="title" style="text-align:left">Paid from income</div>
+      <div class="sub" style="text-align:left">AGENT WALLET · ON TIME · ATTESTED</div>
+      <div class="dash"></div>
+      <div class="row" style="margin-top:8px"><span class="k">pool cost</span><span>55.26</span></div>
+      <div class="row"><span class="k">fee, 1% per 14 d</span><span>1.00</span></div>
+      <div class="row"><span class="k">book discount</span><span>kept by agent</span></div>
+      <div class="dash" style="margin-top:8px"></div>
+      <div class="row total" style="color:var(--plum)"><span>owes</span><span>56.26 USDG</span></div>
+      <div class="note">Only earned tabs move an agent up a tier.</div>
+    </div>
+    <div class="paper slip">
+      <div class="stampwrap"><span class="stamp" style="color:var(--muted)">Covered</span></div>
+      <div class="title" style="text-align:left;color:var(--ink)">Paid by the owner, or late</div>
+      <div class="sub" style="text-align:left">ANY OTHER WALLET · OR AFTER DUE</div>
+      <div class="dash"></div>
+      <div class="row" style="margin-top:8px"><span class="k">face value</span><span>100.00</span></div>
+      <div class="row"><span class="k">fee, 1% per 14 d</span><span>1.00</span></div>
+      <div class="row"><span class="k">forfeited 44.74</span><span>lenders 26.84 · reserve 17.89</span></div>
+      <div class="dash" style="margin-top:8px"></div>
+      <div class="row total"><span>owes</span><span>101.00 USDG</span></div>
+      <div class="note">Keeps the agent alive. Does not make it look better than it is.</div>
+    </div>
+  </div>
+  <div class="foot">Priced on the CREDIT book of 24 Nov 2026 (0.525 USDG, 5% activation fee). The book moves; the rebate is never promised.</div>
+</section>
+
+<!-- 4. default path -->
+<section class="frame diagram" id="default">
+  <div class="head">
+    <div class="eyebrow">The default path</div>
+    <div class="h">No committee, no appeal. The chain decides.</div>
+  </div>
+  <div class="line">
+    <div class="paper step"><div class="t">DAY 0</div><h3>Due date</h3><p>The tab has not been repaid.</p></div>
+    <div class="paper step"><div class="t">DAY 0 TO 3</div><h3>Grace</h3><p>Still repayable. It counts as late: minus 25 score, down one tier.</p></div>
+    <div class="paper step"><div class="t">DAY 3+</div><h3>markDefault()</h3><p>Anyone can call it. Nobody has to be trusted to pull the trigger.</p></div>
+    <div class="paper step"><div class="t">AFTER</div><h3>Settled</h3><p>The inference already spent stays spent. That is all a defaulter keeps.</p></div>
+  </div>
+  <div class="outcomes">
+    <div class="o"><b>$0</b><span>lender loss. Cover pays the pool face plus fee.</span></div>
+    <div class="o burn"><b>75%</b><span>of the owner's $THINK bond burns.</span></div>
+    <div class="o"><b>25%</b><span>of the bond returns to the owner.</span></div>
+    <div class="o burn"><b>0</b><span>Tab Score. No new tabs for this agent.</span></div>
+    <div class="o"><b>90 d</b><span>owner wallet marked. Its other agents wait too.</span></div>
+  </div>
+</section>
+
+<!-- 5. reserve split -->
+<section class="frame diagram" id="reserve">
+  <div class="head">
+    <div class="eyebrow">Think Reserve</div>
+    <div class="h">No withdraw function. Once a day, anyone can sweep().</div>
+    <p>The creator fee, the Reserve's share of tab fees and its share of forfeited discounts all land here, and split the same way every day.</p>
+  </div>
+  <div class="bar">
+    <div class="seg" style="flex:4;background:var(--cream)"><b style="color:var(--plum)">40%</b><span>buyback + burn</span></div>
+    <div class="seg" style="flex:3;background:var(--lilac)"><b style="color:var(--night)">30%</b><span>starter cover</span></div>
+    <div class="seg" style="flex:2;background:var(--night);color:var(--cream)"><b>20%</b><span>operations</span></div>
+    <div class="seg" style="flex:1;background:var(--ink);color:var(--cream);padding:0 18px"><b>10%</b><span>audits</span></div>
+  </div>
+  <div class="legend">
+    <div>Buys $THINK on the market and burns it, in public.</div>
+    <div>USDG locked behind $25 first tabs, so new agents can start.</div>
+    <div>Indexer, gateway costs, hosting.</div>
+    <div>Audits and bug bounties.</div>
+  </div>
+  <div class="facts">
+    <div class="fact"><span class="mono">RULE</span>No function moves Reserve funds to a person.</div>
+    <div class="fact"><span class="mono">CHANGE</span>A public vote by bonded $THINK, then a 72-hour timelock.</div>
+  </div>
+</section>
+
+<!-- 6. tiers -->
+<section class="frame diagram" id="tiers">
+  <div class="head">
+    <div class="eyebrow">Tiers</div>
+    <div class="h">Every agent starts at $25. Only earning moves it up.</div>
+  </div>
+  <div class="ladder">
+    <div class="t" style="height:38%"><div class="paper col" style="height:100%"><div class="tn">T0</div><div class="amt">$25</div><p>Starter. Reserve cover, no record needed.</p></div></div>
+    <div class="t" style="height:49%"><div class="paper col" style="height:100%"><div class="tn">T1</div><div class="amt">$50</div><p>3 tabs repaid, 14 days, score 60+.</p></div></div>
+    <div class="t" style="height:61%"><div class="paper col" style="height:100%"><div class="tn">T2</div><div class="amt">$100</div><p>3 earned tabs of $25+, 14 days at T1.</p></div></div>
+    <div class="t" style="height:73%"><div class="paper col" style="height:100%"><div class="tn">T3</div><div class="amt">$250</div><p>3 earned tabs of $50+, 14 days at T2.</p></div></div>
+    <div class="t" style="height:86%"><div class="paper col" style="height:100%"><div class="tn">T4</div><div class="amt">$500</div><p>3 earned tabs of $125+, 14 days at T3.</p></div></div>
+    <div class="t v2" style="height:100%"><div class="paper col" style="height:100%"><div class="tn">T5 · V2</div><div class="amt">$1,000</div><p>3 earned tabs of $250+. After launch.</p></div></div>
+  </div>
+  <div class="rules">
+    <div>Only <b>earned</b> tabs count toward the next tier.</div>
+    <div>A late repayment drops one tier and resets the count.</div>
+    <div>Tabs under $25 do not exist.</div>
+  </div>
+</section>
+
+<!-- 7. tab score -->
+<section class="frame diagram" id="score">
+  <div class="head">
+    <div class="eyebrow">Tab Score · 0 to 1000</div>
+    <div class="h">A pure function of the chain. Nobody sets it.</div>
+    <p>ScoreLens computes it from what the Tab Desk and Cover Vault record. Earned dollar-days weigh the most, so a score means an agent that earns.</p>
+  </div>
+  <div class="bar">
+    <div class="seg" style="flex:400"><b>400</b><span>earned dollar-days</span></div>
+    <div class="seg alt" style="flex:200"><b>200</b><span>earned ratio</span></div>
+    <div class="seg" style="flex:150"><b>150</b><span>attested income</span></div>
+    <div class="seg alt" style="flex:100"><b>100</b><span>days since first tab</span></div>
+    <div class="seg" style="flex:100"><b>100</b><span>cover at risk</span></div>
+    <div class="seg alt" style="flex:50;padding:16px 10px"><b>50</b><span>streak</span></div>
+  </div>
+  <div class="minus">
+    <div><b>−25</b>for every late repayment</div>
+    <div><b>= 0</b>on any default, and no new tabs</div>
+    <div style="border-style:solid;border-color:rgba(201,189,255,.5)"><b style="color:var(--lilac)">free</b>public check endpoint for any agent</div>
+  </div>
+</section>
+
+</body>
+</html>
