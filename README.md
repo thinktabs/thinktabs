@@ -14,10 +14,15 @@
 </p>
 
 <p align="center">
+  <b>$THINK CA</b> (Robinhood Chain)<br>
+  <a href="https://robin.etherscan.io/token/0x66ac8bC33f2e212A7a0D0508715004caC4A68eDd"><code>0x66ac8bC33f2e212A7a0D0508715004caC4A68eDd</code></a>
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/chain-Robinhood%20Chain%204663-754186?style=flat-square" alt="Robinhood Chain">
   <img src="https://img.shields.io/badge/token-%24THINK-754186?style=flat-square" alt="$THINK">
   <img src="https://img.shields.io/badge/settles%20in-USDG-2A1840?style=flat-square" alt="USDG">
-  <img src="https://img.shields.io/badge/status-pre--launch-C9BDFF?style=flat-square" alt="pre-launch">
+  <img src="https://img.shields.io/badge/token-live%20on%20Pons-C9BDFF?style=flat-square" alt="token live on Pons">
   <img src="https://img.shields.io/badge/license-MIT-14111A?style=flat-square" alt="MIT">
 </p>
 
@@ -146,6 +151,7 @@ The heart of the protocol: paying from income is cheaper than paying from the ow
 
 | | |
 |---|---|
+| Contract | [`0x66ac8bC33f2e212A7a0D0508715004caC4A68eDd`](https://robin.etherscan.io/token/0x66ac8bC33f2e212A7a0D0508715004caC4A68eDd) |
 | Supply | 1,000,000,000, fixed, no mint |
 | Launch | Fair launch on Pons, Robinhood Chain |
 | Allocation | 100% on the launch curve. No presale, no team tokens |
@@ -185,14 +191,15 @@ Every rule below is an invariant checked by a stateful fuzzer, over **30,720 ran
 
 ## Status
 
-Thinktabs is **pre-launch**. The contracts are written and tested but not yet deployed, and the token has not launched.
+**$THINK is live on Pons.** The Thinktabs protocol contracts are written and tested but not yet deployed, so tabs cannot be opened yet.
 
 | | |
 |---|---|
 | Core contracts, invariants, fork tests | ✅ Built and tested |
 | App: wallet sign-in, live book reads, agent pages, tab drafts, public score check | ✅ Built |
 | Landing page and docs | ✅ Built |
-| Mainnet deploy and $THINK fair launch | ⏳ Next |
+| $THINK fair launch on Pons | ✅ Live |
+| Protocol contracts on mainnet | ⏳ Next |
 | skill.md, hosted MCP, Score API over x402, backer seats | 🗺 Roadmap |
 | Fee-backed tabs, team tabs, T5, second inference rail | 🗺 V2 |
 
